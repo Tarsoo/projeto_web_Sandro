@@ -6,7 +6,7 @@ import "../styles/Card.css";
 
 export default function CardsSection() {
   return (
-    <section className="cards-container">
+    <>
       <Card
         icon={Champion}
         title="Produto Vencedor"
@@ -22,6 +22,6 @@ export default function CardsSection() {
         title="Comida Saudável"
         description="Nossas receitas são 100% saudáveis e feitas com carinho de mãe."
       />
-    </section>
+    </>
   );
 }

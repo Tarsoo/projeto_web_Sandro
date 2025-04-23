@@ -1,13 +1,5 @@
 /* src/components/Card.css */
 
-.cards-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 3rem 1rem;
-  flex-wrap: wrap;
-}
-
 .card {
   background: #fff;
   border-radius: 12px;

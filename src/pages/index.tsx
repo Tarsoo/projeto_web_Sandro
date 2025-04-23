@@ -1,6 +1,7 @@
 import Logo from "../assets/logo.svg";
 import "../styles/header.css";
 import "../styles/utility.css";
+import "../styles/solutions.css";
 import { useState } from "react";
 import Button from "../components/Button";
 import Close from "../assets/close.svg";
@@ -97,11 +98,12 @@ export default function Home() {
         <div className="container content">
           <p className="desktop-only">Olá!</p>
           <h1>
-            É possível ter todas as informações do cliente em um só lugar sem tanta burocracia?
+            É possível ter todas as informações do cliente em um só lugar sem
+            tanta burocracia?
           </h1>
           <p>
-            Sim, e você acabou de encontrá-la! Cadastre-se para receber um contato e
-            entender como nossa aplicação turbinará suas vendas
+            Sim, e você acabou de encontrá-la! Cadastre-se para receber um
+            contato e entender como nossa aplicação turbinará suas vendas
           </p>
           <div className="flex gap-1">
             <span>
@@ -114,19 +116,20 @@ export default function Home() {
         </div>
       </section>
       <section className="container" id="solution">
-        {
-          <header>
+        <header>
           <h2>Soluções</h2>
           <div className="desktop-only">
             <h2>Sob medida para você</h2>
           </div>
           <p>
-            Inovação é com a gente! A <strong>DonaFrost</strong> já conquistou diversos clientes,
-            seja você mais um deles, veja tudo que pode ganhar com nossos serviços.
+            Inovação é com a gente! A <strong>DonaFrost</strong> já conquistou
+            diversos clientes, seja você mais um deles, veja tudo que pode
+            ganhar com nossos serviços.
           </p>
-          <CardsSection/>
         </header>
-        }
+        <section className="even-columns">
+          <CardsSection />
+        </section>
       </section>
     </>
   );
