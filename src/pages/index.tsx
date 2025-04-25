@@ -2,7 +2,7 @@ import Logo from "../assets/logo.svg";
 import "../styles/header.css";
 import "../styles/utility.css";
 import "../styles/solutions.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Close from "../assets/close.svg";
 import Menu from "../assets/hamburguer.svg";
@@ -13,6 +13,14 @@ import CardsSection from "../components/CardsSection";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (html) {
+      html.style.overflow = showMobileMenu ? "hidden" : "auto";
+    }
+  }, [showMobileMenu]);
+
   return (
     <>
       <header className="container py-sm">
@@ -51,21 +59,44 @@ export default function Home() {
                 <div className="container flex">
                   <ul>
                     <li>
-                      <a href="#">Home</a>
+                      <a href="#" onClick={() => setShowMobileMenu(false)}>
+                        Home
+                      </a>
                     </li>
                     <li>
-                      <a href="#solution">Soluções</a>
+                      <a
+                        href="#solution"
+                        onClick={() => setShowMobileMenu(false)}
+                      >
+                        Soluções
+                      </a>
                     </li>
                     <li>
-                      <a href="#testimonials">Depoimentos</a>
+                      <a
+                        href="#testimonials"
+                        onClick={() => setShowMobileMenu(false)}
+                      >
+                        Depoimentos
+                      </a>
                     </li>
                     <li>
-                      <a href="#pricing">Preços</a>
+                      <a
+                        href="#pricing"
+                        onClick={() => setShowMobileMenu(false)}
+                      >
+                        Preços
+                      </a>
                     </li>
                     <li>
-                      <a href="#contact">Contato</a>
+                      <a
+                        href="#contact"
+                        onClick={() => setShowMobileMenu(false)}
+                      >
+                        Contato
+                      </a>
                     </li>
                   </ul>
+
                   <span
                     onClick={() => setShowMobileMenu(!showMobileMenu)}
                     className="btn-wrapper"
@@ -122,7 +153,7 @@ export default function Home() {
             <h2>Sob medida para você</h2>
           </div>
           <p>
-            Inovação é com a gente! A <strong>DonaFrost</strong> já conquistou
+            Inovação é com a gente! A <strong>Digitaliza</strong> já conquistou
             diversos clientes, seja você mais um deles, veja tudo que pode
             ganhar com nossos serviços.
           </p>

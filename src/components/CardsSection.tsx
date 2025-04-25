@@ -9,18 +9,18 @@ export default function CardsSection() {
     <>
       <Card
         icon={Champion}
-        title="Produto Vencedor"
-        description="Nosso time já venceu eventos como o CityFarm da FAG e o Startup Garage."
+        title="O mais rápido"
+        description="Com testes de benchmark, a Digitaliza te entrega a solução mais rápida do mercado"
       />
       <Card
         icon={Delivery}
-        title="Entrega Rápida"
-        description="Seu pedido chega quentinho e no prazo em qualquer região da cidade."
+        title="Análise imediata"
+        description="Relatórios com os riscos de possíveis problemas em tempo recorde"
       />
       <Card
         icon={Healthy}
-        title="Comida Saudável"
-        description="Nossas receitas são 100% saudáveis e feitas com carinho de mãe."
+        title="Máquinas mais seguras"
+        description="Você no controle total do seu parque de máquinas"
       />
     </>
   );
