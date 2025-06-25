@@ -4,7 +4,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const AUTH_TOKEN = process.env.AUTH_TOKEN;
 
 exports.handler = async (event) => {
-  // ✔️ Verifica se é POST
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -12,7 +11,6 @@ exports.handler = async (event) => {
     };
   }
 
-  // ✔️ Verifica o token no header Authorization
   const authHeader = event.headers['authorization'];
   if (!authHeader || authHeader !== `Bearer ${AUTH_TOKEN}`) {
     return {
@@ -21,22 +19,31 @@ exports.handler = async (event) => {
     };
   }
 
-  const { toMail, content } = JSON.parse(event.body);
-
-  const msg = {
-    to: toMail,
-    from: 'jplr16@gmail.com', // ✔️ Remetente validado no SendGrid
-    subject: 'Mensagem da função Netlify',
-    text: content,
-  };
-
   try {
+    const { toMail, content } = JSON.parse(event.body);
+
+    if (!toMail || !content) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Campos toMail e content são obrigatórios' }),
+      };
+    }
+
+    const msg = {
+      to: toMail,
+      from: 'jplr16@gmail.com', // ⚠️ Precisa ser um remetente validado no SendGrid
+      subject: 'Mensagem da função Netlify',
+      text: content,
+    };
+
     await sgMail.send(msg);
+
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'Email enviado com sucesso' }),
     };
   } catch (error) {
+    console.error('Erro ao enviar email:', error);
     return {
       statusCode: error.code || 500,
       body: JSON.stringify({ error: error.message }),

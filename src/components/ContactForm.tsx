@@ -14,7 +14,6 @@ export default function ContactForm() {
       const response = await fetch('/.netlify/functions/sendEmail', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_AUTH_TOKEN}`, // 🔥 Coloca aqui o mesmo token que está no Netlify (AUTH_TOKEN)
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -42,7 +41,7 @@ export default function ContactForm() {
     <section className="contact-section" id="contato">
       <h2 className="text-center mb-1">Entre em contato</h2>
       <p className="text-center mb-2">
-        Entre em contato, estamos dispostos a tirar qualquer dúvida, seja um orçamento, uma dúvida técnica ou algo sobre nossos produtos. 
+        Entre em contato, estamos dispostos a tirar qualquer dúvida, seja um orçamento, uma dúvida técnica ou algo sobre nossos produtos.
         Estamos à disposição para responder. 😊
       </p>
 
