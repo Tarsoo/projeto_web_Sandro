@@ -14,6 +14,7 @@ export default function ContactForm() {
       const response = await fetch('/.netlify/functions/sendEmail', {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_AUTH_TOKEN}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -56,7 +57,7 @@ export default function ContactForm() {
         />
         <input
           type="text"
-          placeholder="Motivo do contato (Ex.: Gostei muito do produto X, poderia me enviar um orçamento?)"
+          placeholder="Motivo do contato"
           className="border border-gray-300 rounded p-2"
           required
           value={mensagem}

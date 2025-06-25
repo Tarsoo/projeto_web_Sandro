@@ -11,7 +11,8 @@ exports.handler = async (event) => {
     };
   }
 
-  const authHeader = event.headers['authorization'];
+  const authHeader = event.headers.authorization || event.headers.Authorization;
+
   if (!authHeader || authHeader !== `Bearer ${AUTH_TOKEN}`) {
     return {
       statusCode: 401,
@@ -31,7 +32,7 @@ exports.handler = async (event) => {
 
     const msg = {
       to: toMail,
-      from: 'jplr16@gmail.com', // ⚠️ Precisa ser um remetente validado no SendGrid
+      from: 'jplr16@gmail.com', // ✔️ Remetente verificado no SendGrid
       subject: 'Mensagem da função Netlify',
       text: content,
     };
