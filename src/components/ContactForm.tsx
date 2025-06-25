@@ -14,7 +14,7 @@ export default function ContactForm() {
       const response = await fetch('/.netlify/functions/sendEmail', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer 1234abc', // 🔥 Coloca aqui o mesmo token que está no Netlify (AUTH_TOKEN)
+          'Authorization': `Bearer ${import.meta.env.VITE_AUTH_TOKEN}`, // 🔥 Coloca aqui o mesmo token que está no Netlify (AUTH_TOKEN)
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
