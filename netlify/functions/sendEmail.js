@@ -11,7 +11,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const authHeader = event.headers.authorization || event.headers.Authorization;
+  const authHeader = event.headers['authorization'] || event.headers['Authorization'];
 
   if (!authHeader || authHeader !== `Bearer ${AUTH_TOKEN}`) {
     return {
